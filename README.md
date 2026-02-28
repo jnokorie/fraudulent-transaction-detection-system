@@ -1,4 +1,4 @@
-# fraudulent-transaction-detection-system
+# Fraudulent-transaction-detection-system
 Full-stack fraud transaction detection system with a React frontend, Node.js/Express API, and SQLite database.
 
 This project is a full-stack fraud transaction detection system designed to identify suspicious financial activity.
