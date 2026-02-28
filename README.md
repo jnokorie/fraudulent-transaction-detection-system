@@ -83,7 +83,7 @@ The backend evaluates transactions using simple rules such as:
 
 * unusually large transaction amounts
 * rapid repeated transactions
-* transactions in unusual locations
+* frequency of transactions
 
 Flagged transactions are marked as **Suspicious** or **High Risk**.
 
