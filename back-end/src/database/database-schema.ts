@@ -24,3 +24,4 @@ db.serialize(() => {
     });
 });
 
+export default db
