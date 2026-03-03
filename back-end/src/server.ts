@@ -1,8 +1,19 @@
 import express from 'express'
-const app = express();
+import cors from 'cors'
+import helmet from 'helmet'
+import * as dotenv from 'dotenv'
 
-app.listen(5000, () => {
-    console.log("Listening on PORT 5000")
+const app = express();
+dotenv.config()
+const PORT = process.env.PORT || 5000
+
+app.use(helmet())
+app.use(cors())
+app.use(express.json())
+
+
+app.listen(PORT, () => {
+    console.log(`Listening on PORT ${PORT}`)
 })  
 
 export default app
