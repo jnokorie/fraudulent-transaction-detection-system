@@ -1,6 +1,7 @@
-import app from '../server.ts';
-import db from '../database/database-schema.ts';
+import app from '../server.js';
+import db from '../database/database-schema.js';
+import type {Response, Request} from 'express'
 
-app.get('/transactions', (req,res) => {
+app.get('/transactions', (req: Request, res: Response) => {
     
 })
