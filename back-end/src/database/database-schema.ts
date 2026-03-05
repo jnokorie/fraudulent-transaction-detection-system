@@ -11,7 +11,7 @@ const db = new sqlite3.Database('./back-end/database/transactions.db', (error) =
 
 db.serialize(() => {
     db.run(`CREATE TABLE IF NOT EXISTS Transactions(
-            id INTEGER PRIMARY KEY,
+            id INTEGER PRIMARY KEY INCREMENT,
             user_name VARCHAR(20) NOT NULL,
             amount REAL NOT NULL,
             time DATETIME NOT NULL,
