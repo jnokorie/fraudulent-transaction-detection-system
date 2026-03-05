@@ -1,6 +1,8 @@
-import app from '../index';
-import {Response, Request} from 'express'
+import express from 'express';
+import getAllTransactions from '../controllers/get-all-transactions';
+import getTransactionsByName from '../controllers/get-transaction-by-name';
 
-app.get('/transactions', (req: Request, res: Response) => {
-    
-})
+const router = express.Router()
+
+router.get('/transactions', getAllTransactions)
+router.get('/transactions/:user_name', getTransactionsByName )
