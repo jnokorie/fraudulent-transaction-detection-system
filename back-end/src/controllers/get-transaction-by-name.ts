@@ -7,7 +7,7 @@ const getTransactionsByName = (req: Request, res: Response) => {
     db.all("SELECT * FROM Transactions WHERE user_name = $user_name", { $user_name: req.params.user_name},
         (error, transactions: Transaction[]) => {
             if (error) {
-                res.status(500).json(error.message)
+                res.status(500).json({error: error.message})
             }
             if (transactions.length) {
                 res.status(200).json(transactions)

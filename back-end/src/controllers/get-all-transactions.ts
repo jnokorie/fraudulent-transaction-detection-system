@@ -5,7 +5,7 @@ import Transaction from '../types/transaction-types'
 const getAllTransactions = (req: Request, res: Response) => {
     db.all("SELECT * FROM Transactions", (error, transactions: Transaction[]) => {
         if (error) {
-            res.status(500).json(error.message)
+            res.status(500).json({error: error.message})
             return
         }
         if (transactions.length) {
