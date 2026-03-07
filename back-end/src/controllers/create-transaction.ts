@@ -3,6 +3,8 @@ import { Request, Response } from 'express'
 import Transaction from '../types/transaction-types'
 
 const createTransaction = (req: Request, res: Response) => {
+    const date = new Date()
+
     db.get(`INSERT INTO Transactions(user_name, amount, time, flagged) 
           VALUES($user_name, $amount, $time, $flagged)`, 
         {
@@ -10,7 +12,12 @@ const createTransaction = (req: Request, res: Response) => {
             $amount: req.body.amount,
             $time: req,
             $flagged:req
+        }, (error) => {
+            if (error){
+                res.status(500).json({error: error.message})
+            }
         })
+    
 }
 
 
