@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "better-sqlite3": "^12.6.2",
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
     "helmet": "^8.1.0"
@@ -9,7 +10,7 @@
     "@types/helmet": "^0.0.48",
     "ts-node-dev": "^2.0.0"
   },
-   "scripts": {
+  "scripts": {
     "dev": "ts-node-dev  back-end/src/index.ts"
   }
 }

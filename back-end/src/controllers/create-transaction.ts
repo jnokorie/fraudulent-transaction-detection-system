@@ -3,7 +3,7 @@ import { Request, Response } from 'express'
 import Transaction from '../types/transaction-types'
 
 const createTransaction = (req: Request, res: Response) => {
-    const date = new Date()
+    const date: Date = new Date()
 
     db.get(`INSERT INTO Transactions(user_name, amount, time, flagged) 
           VALUES($user_name, $amount, $time, $flagged)`, 
@@ -19,7 +19,6 @@ const createTransaction = (req: Request, res: Response) => {
         })
     
 }
-
 
 
 export default createTransaction
