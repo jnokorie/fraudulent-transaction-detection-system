@@ -9,7 +9,7 @@ const getAllTransactions = (req: Request, res: Response) => {
             return
         }
         if (transactions.length) {
-            res.status(200).json(transactions)
+            res.status(200).json(transactions[0])
         }
         else {
             res.status(404).json({

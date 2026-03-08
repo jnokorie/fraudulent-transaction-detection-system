@@ -1,3 +1,0 @@
-const transactionSpeed = (time:string) => {
-    
-}
