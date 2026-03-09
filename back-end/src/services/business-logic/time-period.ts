@@ -1,0 +1,3 @@
+const transactionSpeed = (currUser, pastUser) => {
+
+}
