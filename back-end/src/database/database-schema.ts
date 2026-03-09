@@ -1,27 +1,21 @@
-import sqlite3 from 'sqlite3';
+import Database from 'better-sqlite3';
 
-const db = new sqlite3.Database('./back-end/src/database/transactions.db', (error) => {
-    if (error) {
-        console.error(error.message);
-        return;
-    }
+const db: InstanceType<typeof Database> = new Database('./back-end/src/database/transactions.db')
 
-    console.log('Connected to SQLite database');
-});
-
-db.serialize(() => {
-    db.run(`CREATE TABLE IF NOT EXISTS Transactions(
-            id INTEGER PRIMARY KEY INCREMENT,
+try {
+    db.exec(`CREATE TABLE IF NOT EXISTS Transactions(
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
             user_name VARCHAR(20) NOT NULL,
             amount REAL NOT NULL,
             time DATETIME NOT NULL,
             flagged BOOLEAN NOT NULL
-            )`, (error) => {
-        if (error) {
-            console.error(error.message);
-        }
-        console.log('Table created successfully!')
-    });
-});
+            )`)
+    console.log('Table created successfully!')
+} 
+catch (error){
+    if (error instanceof Error) {
+        console.error(error.message);
+    }
+}
 
 export default db
