@@ -1,8 +1,8 @@
 
 const transactionLimit = (amount: number) => {
-    let flag: boolean = false
+    let isflagged: boolean = false
     if (amount > 500){
-        flag = true
+        isflagged = true
     }
     return
 }

@@ -4,8 +4,17 @@ import Transaction from '../types/transaction-types'
 
 const createTransaction = (req: Request, res: Response) => {
     const date: Date = new Date()
+    const recentUser = db.prepare 
 
-    db.get(`INSERT INTO Transactions(user_name, amount, time, flagged) 
+    
+    
+}
+
+
+export default createTransaction
+
+
+db.get(`INSERT INTO Transactions(user_name, amount, time, flagged) 
           VALUES($user_name, $amount, $time, $flagged)`, 
         {
             $user_name: req.body.user_name,
@@ -17,8 +26,3 @@ const createTransaction = (req: Request, res: Response) => {
                 res.status(500).json({error: error.message})
             }
         })
-    
-}
-
-
-export default createTransaction
