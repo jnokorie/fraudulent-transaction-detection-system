@@ -1,10 +1,10 @@
 import db from '../database/database-schema';
 import { Request, Response } from 'express'
-import Transaction from '../types/transaction-types'
+import {Transaction, CurrUser} from '../types/transaction-types'
 
 const createTransaction = (req: Request, res: Response) => {
     const date: Date = new Date()
-    const recentUser = db.prepare 
+    const recentUser = db.prepare("SELECT ")
 
     
     

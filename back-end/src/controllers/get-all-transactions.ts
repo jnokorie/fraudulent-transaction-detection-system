@@ -1,6 +1,6 @@
 import db from '../database/database-schema';
 import { Request, Response } from 'express'
-import Transaction from '../types/transaction-types'
+import {Transaction} from '../types/transaction-types'
 
 const getAllTransactions = (req: Request, res: Response) => {
     try {
