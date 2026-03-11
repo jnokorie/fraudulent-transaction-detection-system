@@ -7,7 +7,7 @@ const router = express.Router()
 
 router.get('/', getAllTransactions)
 router.get('/:user_name', getTransactionsByName )
-router.put('/', createTransaction)
+router.post('/', createTransaction)
 
 
 export default router
