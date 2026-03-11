@@ -7,12 +7,10 @@ const transactionSpeed = (currUser: CurrUser, pastUser: Transaction[], timeStamp
     const currUserName: string | undefined = currUser.user_name
     const pastUserName: string | undefined = pastUser[1]?.user_name
 
-    let pastUserTime_converted: Date
-
     if (typeof pastUserTime === 'undefined') {
         return false
     }
-    pastUserTime_converted = new Date(pastUserTime)
+    const pastUserTime_converted: Date = new Date(pastUserTime)
 
 
     const millisecsToMins: number = 1000 * 60

@@ -1,10 +1,9 @@
 
-const transactionLimit = (amount: number) => {
-    let isflagged: boolean = false
+const transactionLimit = (amount: number): boolean => {
     if (amount > 500){
-        isflagged = true
+        return true
     }
-    return
+    return false
 }
 
 export default transactionLimit
