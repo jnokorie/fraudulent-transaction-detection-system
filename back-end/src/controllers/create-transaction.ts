@@ -8,10 +8,10 @@ const createTransaction = (req: Request, res: Response) => {
     const date: Date = new Date()
 
     try {
-        const recentUser: Transaction[] = db.prepare("SELECT * FROM Transactions ORDER BY id DESC LIMIT 1").get() as Transaction[]
+        const recentUser: Transaction = db.prepare("SELECT * FROM Transactions ORDER BY id DESC LIMIT 1").get() as Transaction
         const isFlagged: boolean = (transactionSpeed(req.body, recentUser, date) || transactionLimit(req.body.amount))
         db.prepare("INSERT INTO Transactions(user_name, amount, time, flagged) VALUES(@user_name, @amount, @time, @flagged)")
-            .get({
+            .run({
                 user_name: req.body.user_name,
                 amount: req.body.amount,
                 time: date.toString(),

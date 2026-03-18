@@ -1,11 +1,11 @@
 import { Transaction, CurrUser } from '../../types/transaction-types'
 
 
-const transactionSpeed = (currUser: CurrUser, pastUser: Transaction[], timeStamp: Date): boolean => {
+const transactionSpeed = (currUser: CurrUser, pastUser: Transaction, timeStamp: Date): boolean => {
     const currUserTime: Date = timeStamp
-    const pastUserTime: string | undefined = pastUser[3]?.time
+    const pastUserTime: string | undefined = pastUser.time
     const currUserName: string | undefined = currUser.user_name
-    const pastUserName: string | undefined = pastUser[1]?.user_name
+    const pastUserName: string | undefined = pastUser.user_name
 
     if (typeof pastUserTime === 'undefined') {
         return false
