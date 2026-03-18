@@ -1,6 +1,6 @@
 import Database from 'better-sqlite3';
-
-const db: InstanceType<typeof Database> = new Database('./back-end/src/database/transactions.db')
+import {Transaction} from '../types/transaction-types'
+const db: Database.Database = new Database('./src/database/transactions.db')
 
 try {
     db.exec(`CREATE TABLE IF NOT EXISTS Transactions(
@@ -11,6 +11,8 @@ try {
             flagged BOOLEAN NOT NULL
             )`)
     console.log('Table created successfully!')
+    const recentUser: Transaction = db.prepare("SELECT * FROM Transactions ORDER BY id DESC LIMIT 1").get() as Transaction
+        console.log(recentUser)
 } 
 catch (error){
     if (error instanceof Error) {
